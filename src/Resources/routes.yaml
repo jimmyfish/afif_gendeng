@@ -1,0 +1,18 @@
+welcome:
+  path: /
+  methods: ['GET']
+  controller: App\Controller\Api\AnggotaController::index
+
+anggota_create:
+  path: /register
+  methods: ['POST']
+  controller: App\Controller\Api\AnggotaController::add
+
+api_login_check:
+    path: /login
+    methods: ['POST']
+
+anggota_list:
+    path: /me
+    methods: ['GET']
+    controller: App\Controller\Api\AnggotaController::me
