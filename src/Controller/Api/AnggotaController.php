@@ -33,7 +33,7 @@ class AnggotaController extends AbstractController
             'code' => 200,
             'data' => 'welcome to api'
         ];
-        return new JsonResponse($data,Response::HTTP_OK);
+        return new JsonResponse($data, Response::HTTP_OK);
     }
 
     public function me(UserInterface $anggota): JsonResponse
@@ -49,7 +49,7 @@ class AnggotaController extends AbstractController
 
     public function add(Request $request): JsonResponse
     {
-        $data = json_decode($request->getContent(),true);
+        $data = json_decode($request->getContent(), true);
 
         $firstName = $data['first_name'];
         $lastName = $data['last_name'];
@@ -57,7 +57,7 @@ class AnggotaController extends AbstractController
         $password = $data['password'];
         $phoneNumber = $data['phone_number'];
 
-        $dataAnggota = $this->anggotaRepository->saveAnggota($firstName,$lastName,$email,$password,['ROLE_USER'],$phoneNumber);
+        $dataAnggota = $this->anggotaRepository->saveAnggota($firstName, $lastName, $email, $password, ['ROLE_USER'], $phoneNumber);
 
         $response = [
             'status' => 'success',
